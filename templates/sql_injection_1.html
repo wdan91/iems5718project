@@ -1,0 +1,53 @@
+{% autoescape true %}
+
+
+        <title>SQL Injection</title>
+        <script type = "text/javascript" src = "http://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>	
+
+        <!-- include jquery and your js -->
+        <script src="/js/sql_injection_1.js"></script>
+        <script src="/js/bootstrap.min.js"></script>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <a href="/sql_injection_1?query=sony">click</a>
+     <div id="lessonContent">
+	    * You want to get a sony camera at a very low price (say 0.01 dollar).<br>
+	    * Try SQL injection<br>
+    </div>
+    <div class="container">
+	    <h1>EXPLORE</h1>
+	    <p>results for Electronics : Camera & Photo </p>
+	    <p>&nbsp</p>
+          <div class="input-group">
+	  <input id="query" type="text" class="form-control" placeholder="Search for products...">
+	  <span class="input-group-btn">
+		  <button id="search" class="btn btn-default" type="button">Go!</button>
+	  </span>
+           </div><!-- /input-group -->
+	    <p>&nbsp</p>
+	    <table class="table table-hover">
+		    <thead><tr>
+			    <th>Product</th>
+			    <th>Price</th>
+			    <th>Seller</th>
+			    <th></th>
+	            </tr></thead>
+		    <tbody>
+			    {% for product in result %}
+			    <tr><td>{{ product.product_name}}</td>
+				    <td> {{ product.price}} </td>
+				    <td> {{ product.seller}} </td>
+				    <td> {{ product.in_stock}} </td>
+			    </tr>
+			    {% endfor %}
+		    </tbody>
+	    </table>
+	      <div class="col-lg-6">
+    
+    
+    </div>
+
+{% endautoescape %}

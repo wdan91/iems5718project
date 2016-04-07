@@ -1,0 +1,41 @@
+{% autoescape true %}
+
+        <title>Dom Injection</title>
+        <script type = "text/javascript" src = "http://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>	
+        <!-- include jquery and your js -->
+        <script src="/js/dom_injection.js"></script>
+        <script src="/js/bootstrap.min.js"></script>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+
+<!-- HTML fragment correpsonding to the lesson content -->
+
+<div id="lessonContent">
+	    * You want to get the free trial but you do not have redeem code.<br>
+	    * Your goal should be to try to get to enable the activate button.<br>
+	    * Check the source code and see what you can do.<br>
+    </div>
+    <div id="message" class="info"></div>
+    <div class="container">
+    <div class="jumbotron">
+	      <h1>Code Redemption</h1>
+		<p>Enter your code to redeem a free trial</p>
+		<input  id='key' value='' name='key' type='TEXT'>
+		<small style="color:red"  id="warning">This key is invalid.</small>
+		<br>
+		<p>&nbsp</p>
+		<input disabled class="btn btn-default" id='SUBMIT' value='Redeem Now' name='SUBMIT' type='SUBMIT'>
+	  </div>
+  </div>
+
+
+
+
+
+{% endautoescape %}
