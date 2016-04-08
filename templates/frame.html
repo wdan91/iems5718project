@@ -1,0 +1,49 @@
+{% autoescape true %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>WebGod</title>
+		<!-- 新 Bootstrap 核心 CSS 文件 -->
+		<link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+		<!-- 可选的Bootstrap主题文件（一般不用引入） -->
+		<link rel="stylesheet" href="../bootstrap/css/bootstrap-theme.min.css">
+		<link rel="stylesheet" href="../css/frame.css">
+	</head>
+	<body>
+		<header>
+			<div class="row">
+				<div class="brand col-md-2 col-lg-2">
+					WebGod
+				</div>
+				<div class="col-md-10 col-lg-10">
+					<nav class="navbar navbar-nav">
+						<ul class="nav nav-pills">
+							<li role="presentation" class="active"><a href="./index.html">Home</a></li>
+							<li role="presentation"><a href="./level_2.html">Profile</a></li>
+							<li role="presentation"><a href="./level_3.html">Messages</a></li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+			
+		</header>
+		<aside class="col-md-2 col-lg-2">
+			<div class="list-group">
+				<button type="button" class="list-group-item">DOM</button>
+				<button type="button" class="list-group-item">SQL INJECT</button>
+				<button type="button" class="list-group-item">PASSWORD</button>
+				<button type="button" class="list-group-item">HIDDEN</button>
+				<button type="button" class="list-group-item">XSS</button>
+			</div>
+		</aside>
+	<article class="col-md-10 col-lg-10">
+		{% block content %}{% endblock %}
+	</article>
+	<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+	<script src="../bootstrap/js/jquery.min.js"></script>
+	<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+	<script src="./bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>
+{% endautoescape %}
