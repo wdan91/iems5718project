@@ -1,0 +1,89 @@
+{% extends "frame.html" %}
+{% block content %}
+{% autoescape true %}
+
+
+        <title>Concurrency</title>
+        <script type = "text/javascript" src = "http://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>	
+        <!-- include jquery and your js -->
+        <script src="/js/concurrency.js"></script>
+
+
+
+<!-- HTML fragment correpsonding to the lesson content -->
+{% if finished %}
+<div style="color:red;"> Congratulations!!! </div>
+{% endif %}
+
+<div id="lessonContent">
+	    * Your victim is a system that takes an activation key to allow you to use it.<br>
+	    * Your goal should be to try to get to enable the activate button.<br>
+	    * Take some time to see the HTML source in order to understand how the key validation process works.<br>
+    </div>
+    <div id="message" class="info"></div>
+
+    <div id="lessonContent">
+	    <br>
+	    <h1>Welcome to Payment Page:</h1>
+	    <br>&nbsp;&nbsp;Please check the item(s) and the price.
+	    <br>&nbsp;&nbsp;If correct, press the "PAY" botton, or if there is any changement, press the "UPDATE" button.
+	    <br><br><br>
+	    <form accept-charset='UNKNOWN' method='POST' onsubmit=''>
+	    	<table align="center" cellspacing="0" width="90%" border="1" cellpadding="2">
+				<tbody>
+					<tr>
+						<th width="40%">Shopping Cart Items</th>
+						<th width="20%">Price</th>
+						<th width="15%">Quantity</th>
+						<th width="25%">Subtotal</th>
+					</tr>
+					<tr>
+						<td>&nbsp;Crown</td>
+						<td align="center">${{price1}}.00</td>
+						<td align="right"><input onclick="this.select()" style="text-align: right;" onkeyup="validate('/concurrency/check');" id="QTY1" type="TEXT" value="0" /></td>
+						<td align="right" id='subt1'>$ 0.00</td>
+					</tr>
+					<tr>
+						<td>&nbsp;Scepter</td>
+						<td align="center">${{price2}}.00</td>
+						<td align="right"><input onclick="this.select()" style="text-align: right;" onkeyup="validate('/concurrency/check');" id="QTY2" type="TEXT" value="0" /></td>
+						<td align="right" id='subt2'>$ 0.00</td>
+					</tr>
+					<tr>
+						<td>&nbsp;Imperial gown</td>
+						<td align="center">${{price3}}.00</td>
+						<td align="right"><input onclick="this.select()" style="text-align: right;" onkeyup="validate('/concurrency/check');" id="QTY3" type="TEXT" value="0" /></td>
+						<td align="right" id='subt3'>$ 0.00</td>
+					</tr>
+					<tr>
+						<td>&nbsp;Dragon Throne (shipping free)</td>
+						<td align="center">${{price4}}.00</td>
+						<td align="right"><input onclick="this.select()" style="text-align: right;" onkeyup="validate('/concurrency/check');" id="QTY4" type="TEXT" value="0" />
+						</td>
+						<td align="right" id='subt4'>$ 0.00</td>
+					</tr>
+				</tbody>
+			</table>
+			<table align="center" cellspacing="0" width="90%" border="0" cellpadding="2">
+				<tbody>
+					<tr><td>&nbsp;</td></tr>
+					<tr>
+						<th align="left" width="40%" id='total' value='0'>Total: $ 0.00</th>
+						<th width="30%"></th>
+						<th align="right" width="30%">
+							<input type="button" id="lock" value="LOCK" onclick="lockit('/concurrency/lock');" >
+						</th>
+					</tr>
+					<tr id='buysec'>
+					</tr>
+					<tr id='information'>
+					</tr>
+				</tbody>
+			</table>
+		</form>
+		<div id='MessageDiv' name='MessageDiv'></div>
+	</div>
+
+
+{% endautoescape %}
+{% endblock %}
