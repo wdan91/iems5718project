@@ -18,7 +18,11 @@ JINJA_ENVIRONMENT = jinja2.Environment(
     autoescape=True)
 class DomInjection(webapp2.RequestHandler):
     def get(self):
-        template_values = {}
+        template_values = {
+                'islesson': True,
+                'content':'You want to get the free trial but you do not have redeem code.',
+                'hint':'Your goal should be to try to get to enable the activate button.Check the source code and see what you can do.',
+                'solution':'delete disable'}
         template = JINJA_ENVIRONMENT.get_template('dom_injection.html')
         self.response.write(template.render(template_values))
     def post(self):

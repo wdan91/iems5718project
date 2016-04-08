@@ -47,6 +47,10 @@ class SqlInjection1(webapp2.RequestHandler):
         db.close()
 
         template_values = {
+                'islesson': True,
+                'content':'You want to get a sony camera at a very low price, say, 0.01 dollar.',
+                'hint':'Try SQL injection',
+                'solution':'\';update products set price = 0.01 where product_name like \'%sony%\';#',
                 'result':data
         }
         template = JINJA_ENVIRONMENT.get_template('sql_injection_1.html')
@@ -70,6 +74,7 @@ class SqlInjection1(webapp2.RequestHandler):
         sonyprice = dictfetchall(cursor)
         if sonyprice[0]['price'] == 0.01:
             succeed = "$(\"<p style=\'color:red\'>Congratulations!!!</p>\").appendTo('#lessonContent')"; 
+            #succeed = "$(\'#myModal\').on(\'shown.bs.modal\',function(){$(\'#myInput\').focus()})"
         else:
             succeed = ""
         datas = {

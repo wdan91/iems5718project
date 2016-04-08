@@ -16,9 +16,6 @@
 {% endif %}
 
 <div id="lessonContent">
-	    * Your victim is a system that takes an activation key to allow you to use it.<br>
-	    * Your goal should be to try to get to enable the activate button.<br>
-	    * Take some time to see the HTML source in order to understand how the key validation process works.<br>
     </div>
     <div id="message" class="info"></div>
 
@@ -29,7 +26,7 @@
 	    <br>&nbsp;&nbsp;If correct, press the "PAY" botton, or if there is any changement, press the "UPDATE" button.
 	    <br><br><br>
 	    <form accept-charset='UNKNOWN' method='POST' onsubmit=''>
-	    	<table align="center" cellspacing="0" width="90%" border="1" cellpadding="2">
+	    	<table class="table"  align="center" cellspacing="0" width="90%" border="1" cellpadding="2">
 				<tbody>
 					<tr>
 						<th width="40%">Shopping Cart Items</th>
@@ -71,7 +68,7 @@
 						<th align="left" width="40%" id='total' value='0'>Total: $ 0.00</th>
 						<th width="30%"></th>
 						<th align="right" width="30%">
-							<input type="button" id="lock" value="LOCK" onclick="lockit('/concurrency/lock');" >
+							<input class="btn btn-default" type="button" id="lock" value="LOCK" onclick="lockit('/concurrency/lock');" >
 						</th>
 					</tr>
 					<tr id='buysec'>
