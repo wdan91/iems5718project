@@ -24,7 +24,7 @@ class MainHandler(webapp2.RequestHandler):
         
         template_values = {
         }
-        template = JINJA_ENVIRONMENT.get_template('frame.html')
+        template = JINJA_ENVIRONMENT.get_template('welcome.html')
         self.response.write(template.render(template_values))
         
 app = webapp2.WSGIApplication([    
