@@ -6,7 +6,7 @@ import webapp2
 # import users api
 from google.appengine.api import users
 import os
-# import MySQLdb
+import MySQLdb
 
 # import module for templates
 import jinja2

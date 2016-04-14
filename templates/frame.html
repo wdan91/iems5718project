@@ -3,69 +3,119 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8">
-                 <script type = "text/javascript" src = "http://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>	
-
-        <script src="/js/frame.js"></script>
-        <!-- include jquery and your js -->
 		<title>WebGod</title>
 		<!-- 新 Bootstrap 核心 CSS 文件 -->
 		<link rel="stylesheet" href="../css/bootstrap.min.css">
 		<!-- 可选的Bootstrap主题文件（一般不用引入） -->
 		<link rel="stylesheet" href="../css/bootstrap-theme.min.css">
 		<link rel="stylesheet" href="../css/frame.css">
+		<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+		<script src="../js/jquery-2.2.3.min.js"></script>
+		<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+		<script src="../js/bootstrap.min.js"></script>
 	</head>
 	<body>
 		<header>
-			<div class="row">
-				<div class="brand col-md-2 col-lg-2">
-					WebGod
-				</div>
-<!-- 				<div class="col-md-10 col-lg-10">
-	<nav class="navbar navbar-nav">
-		<ul class="nav nav-pills">
-			<li role="presentation" class="active"><a href="./index.html">Home</a></li>
-			<li role="presentation"><a href="./level_2.html">Profile</a></li>
-			<li role="presentation"><a href="./level_3.html">Messages</a></li>
-		</ul>
-	</nav>
-</div> -->
+			<div class="container">
+				<nav class="navbar navbar-default">
+					<div class="navbar-header">
+						<a href="/" class="navbar-brand">
+							<span>WebGod</span>
+						</a>
+					</div>
+				</nav>
 			</div>
 			
 		</header>
-		<aside class="col-md-2 col-lg-2">
-			<div class="list-group">
-				<button onclick="{location.href='/dom_injection'}"  type="button" class="list-group-item">DOM INJECTION</button>
-				<button onclick="{location.href='/sql_injection_1'}" type="button" class="list-group-item">SQL INJECTION</button>
-				<button onclick="{location.href='/concurrency'}" type="button" class="list-group-item">CONCURRENCY</button>
-				<button type="button" class="list-group-item">PASSWORD</button>
-				<button type="button" class="list-group-item">HIDDEN</button>
-				<button type="button" class="list-group-item">XSS</button>
-			</div>
-		</aside>
-	<article class="col-md-10 col-lg-10">
-		{% if islesson %}
-				<div class="col-md-12 col-lg-12">
-					<nav class="navbar navbar-nav">
-						<ul class="nav nav-pills">
-							<button type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="bottom" data-content="{{content}}">
-								Course Content 
-							  </button>
-							  <button type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="bottom" data-content="{{hint}}">
-								Hint 
-							  </button>
-							  <button type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="bottom" data-content="{{solution}}">
-								Solution 
-							  </button>
-						</ul>
-					</nav>
+		<section class="container">
+			<aside class="col-md-2 col-lg-2">
+				<div class="panel panel-default">
+					<div class="panel-heading" role="tab" id="headingOne">
+						<h4 class="panel-title">
+						<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+							Basic knowledge
+						</a>
+						</h4>
+					</div>
+					<div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne" aria-expanded="false">
+						<!-- <div class="panel-body"> -->
+						<div class="list-group">
+							<button onclick="{location.href='/dom_injection'}"  type="button" class="list-group-item">DOM INJECTION</button>
+							<button onclick="{location.href='/sql_injection_1'}" type="button" class="list-group-item">SQL INJECTION</button>
+							<button onclick="{location.href='/concurrency'}" type="button" class="list-group-item">CONCURRENCY</button>
+							<button type="button" class="list-group-item">PASSWORD</button>
+							<button type="button" class="list-group-item">HIDDEN</button>
+							<button type="button" class="list-group-item">XSS</button>
+						</div>
+						<!-- </div> -->
+					</div>
 				</div>
-		{% endif %}
-		{% block content %}{% endblock %}
-	</article>
-	<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
-	<script src="../js/jquery.min.js"></script>
-	<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
-	<script src="../js/bootstrap.min.js"></script>
-</body>
+				<div class="panel panel-default">
+					<div class="panel-heading" role="tab" id="headingTwo">
+						<h4 class="panel-title">
+						<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+							Normal attack
+						</a>
+						</h4>
+					</div>
+					<div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo" aria-expanded="false">
+						<!-- <div class="panel-body"> -->
+						<div class="list-group">
+							<button onclick="{location.href='/dom_injection'}"  type="button" class="list-group-item">DOM INJECTION</button>
+							<button onclick="{location.href='/sql_injection_1'}" type="button" class="list-group-item">SQL INJECTION</button>
+							<button onclick="{location.href='/concurrency'}" type="button" class="list-group-item">CONCURRENCY</button>
+							<button type="button" class="list-group-item">PASSWORD</button>
+							<button type="button" class="list-group-item">HIDDEN</button>
+							<button type="button" class="list-group-item">XSS</button>
+						</div>
+						<!-- </div> -->
+					</div>
+				</div>
+				<div class="panel panel-default">
+					<div class="panel-heading" role="tab" id="headingTwo">
+						<h4 class="panel-title">
+						<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+							Normal attack
+						</a>
+						</h4>
+					</div>
+					<div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree" aria-expanded="false">
+						<!-- <div class="panel-body"> -->
+						<div class="list-group">
+							<button onclick="{location.href='/dom_injection'}"  type="button" class="list-group-item">DOM INJECTION</button>
+							<button onclick="{location.href='/sql_injection_1'}" type="button" class="list-group-item">SQL INJECTION</button>
+							<button onclick="{location.href='/concurrency'}" type="button" class="list-group-item">CONCURRENCY</button>
+							<button type="button" class="list-group-item">PASSWORD</button>
+							<button type="button" class="list-group-item">HIDDEN</button>
+							<button type="button" class="list-group-item">XSS</button>
+						</div>
+						<!-- </div> -->
+					</div>
+				</div>
+			</aside>
+			<article class="col-md-10 col-lg-10">
+				{% if islesson %}
+					<div class="clearfix">
+						<nav class="navbar navbar-nav">
+							<ul class="nav nav-pills">
+								<button type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="bottom" data-content="{{content}}">
+								Course Content
+								</button>
+								<button type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="bottom" data-content="{{hint}}">
+								Hint
+								</button>
+								<button type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="bottom" data-content="{{solution}}">
+								Solution
+								</button>
+							</ul>
+						</nav>
+					</div>
+				{% endif %}
+				{% block content %}{% endblock %}
+			</article>
+			
+		</section>
+		<script src="/js/frame.js"></script>
+	</body>
 </html>
 {% endautoescape %}

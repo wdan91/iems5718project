@@ -1,37 +1,25 @@
-
 {% extends "frame.html" %}
 {% block content %}
-{% autoescape true %}
-
-
-        <!-- <title>Dom Injection</title>
-        <script type = "text/javascript" src = "http://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>     -->
-        <!-- include jquery and your js -->
-        <script src="/js/dom_injection.js"></script>
-
-
-
-
-<!-- HTML fragment correpsonding to the lesson content -->
-
-<div id="lessonContent">
-    </div>
-    <div id="message" class="info"></div>
-    <div class="container">
+    {% autoescape true %}
+    <!-- <title>Dom Injection</title>
+    <script type = "text/javascript" src = "http://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>     -->
+    <!-- include jquery and your js -->
+    
+    <!-- HTML fragment correpsonding to the lesson content -->
     <div class="jumbotron">
-	      <h1>Code Redemption</h1>
-		<p>Enter your code to redeem a free trial</p>
-		<input  id='key' value='' name='key' type='TEXT'>
-		<small style="color:red"  id="warning">This key is invalid.</small>
-		<br>
-		<p>&nbsp</p>
-		<input disabled class="btn btn-default" id='SUBMIT' value='Redeem Now' name='SUBMIT' type='SUBMIT'>
-	  </div>
-  </div>
-
-
-
-
-
+        <div id="lessonContent">
+        </div>
+        <div id="message" class="info"></div>
+        <!-- <div class="jumbotron"> -->
+        <h1>Code Redemption</h1>
+        <p>Enter your code to redeem a free trial</p>
+        <input  id='key' value='' name='key' type='TEXT'>
+        <small style="color:red"  id="warning">This key is invalid.</small>
+        <br>
+        <p>&nbsp</p>
+        <input disabled class="btn btn-default" id='SUBMIT' value='Redeem Now' name='SUBMIT' type='SUBMIT'>
+        <!-- </div> -->
+    </div>
+    <script src="/js/dom_injection.js"></script>
 {% endautoescape %}
 {% endblock %}
