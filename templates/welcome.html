@@ -1,19 +1,17 @@
 {% extends "frame.html" %}
+
+
 {% block content %}
 	{% autoescape true %}
-	<!-- <div class="container">
-			<h3>
-				Welcome to WebGod! It is a website making you do some exercises of web security. <br>
-				Hope you have fun!
-			</h3>
-	</div> -->
-	<div class="jumbotron">
+
+
+	<input id="welcome_hidden" type="hidden" value="welcome">
 		<div class="container">
 			<h3>Welcome!</h3>
 			<p>Welcome to WebGod! It is a website making you do some exercises of web security. <br>Hope you have fun!</p>
 			<p><a class="btn btn-success btn-lg" href="/concurrency" role="button">Start !</a></p>
 		</div>
-	</div>
+
 	
 {% endautoescape %}
 {% endblock %}

@@ -14,3 +14,23 @@ article{
 .row{
 	padding-top: 10px;
 }
+.lesson_section{
+	display: none;
+	background-color: #eee;
+	padding: 20px;
+	border-radius: 5px;
+	min-height: 400px;
+}
+.guide_section{
+	min-height: 400px;
+	background-color: #eee;
+	padding: 20px;
+	border-radius: 5px;
+
+}
+.guide_content{
+	/*padding: 1px;*/
+	margin-bottom: 60px;
+	font-size: 16px;
+	
+}

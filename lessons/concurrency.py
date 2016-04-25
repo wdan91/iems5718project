@@ -21,6 +21,7 @@ class Concurrency(webapp2.RequestHandler):
     def get(self):
         finished = False;
         template_values = {
+                'islesson': True,
                 'finished' : finished,
                 'price1' : 3998,
                 'price2' : 3998,
