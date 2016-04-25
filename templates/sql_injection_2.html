@@ -1,0 +1,42 @@
+{% extends "frame.html" %}
+{% block content %}
+{% autoescape true %}
+
+
+
+        <!-- <title>SQL Injection</title>
+        <script type = "text/javascript" src = "http://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>	 -->
+
+        <!-- include jquery and your js -->
+        <script src="/js/sql_injection_2.js"></script>
+     <div id="lessonContent">
+	    <h1>Customer Reviews</h1>
+	    <h2>Fujifilm INSTAX Mini Instant Film Twin Pack</h2>
+	    <p>&nbsp</p>
+          <div class="input-group">
+	  <input id="query" type="text" class="form-control" placeholder="Search for key words...">
+	  <span class="input-group-btn">
+		  <button id="search" class="btn btn-default" type="button">Go!</button>
+	  </span>
+           </div><!-- /input-group -->
+	   <p>&nbsp</p>
+	   <div id="review_div">
+	    {% for review in reviews%}
+	    <h4>{{ review.review_title }}</h4>
+	    <h5>By {{ review.name }} </h5>
+	    <p> {{ review.content }} </p>
+	    <p>&nbsp</p>
+	    {% endfor %}
+	    </div>
+          <div class="input-group">
+	  <input id="result" type="text" class="form-control" placeholder="What is anomymous' name?">
+	  <span class="input-group-btn">
+		  <button id="submit_result" class="btn btn-default" type="button">Submit</button>
+	  </span>
+  </div>
+    
+    
+    </div>
+
+{% endautoescape %}
+{% endblock %}

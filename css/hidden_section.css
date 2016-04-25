@@ -1,0 +1,149 @@
+#glassDiv {
+  font-family: 'Exo 2', sans-serif;
+  border-radius: 15px;
+  border: 4px solid white;
+  padding: 20px;
+  margin-left: -100px;
+  margin-top: -50px;
+  position: fixed;
+  left:50%; 
+  top:40%;
+  width: 200px;
+  height: 100 %;
+  background: #000000;
+  color: #ffffff;
+  box-shadow: inset 0 0 15px #F0E943;
+  display: none; // initially hidden
+}
+
+#glassDiv0 {
+  font-family: 'Exo 2', sans-serif;
+  border-radius: 15px;
+  border: 4px solid white;
+  padding: 20px;
+  margin-left: -100px;
+  margin-top: -50px;
+  position: fixed;
+  left:50%; 
+  top:40%;
+  width: 200px;
+  height: 100 %;
+  background: #000000;
+  color: #ffffff;
+  box-shadow: inset 0 0 15px #F0E943;
+  display: none; // initially hidden
+}
+
+#ccc {
+  font-family: 'Exo 2', sans-serif;
+  width: 86px;
+  text-align: center;
+  line-height: 100%;
+  padding-top: 0.5em;
+  padding-right: 2em;
+  padding-bottom: 0.55em;
+  padding-left: 2em;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  text-decoration: none;
+  margin-top: 0px;
+  margin-right: 2px;
+  margin-bottom: 0px;
+  margin-left: 2px;
+  vertical-align: text-bottom;
+  display: inline-block;
+  cursor: pointer;
+  outline-width: medium;
+  outline-color: invert;
+  font-size-adjust: none;
+  font-stretch: normal;
+  border-radius: 0.5em;
+  text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
+  color: #fefee9;
+  border-top-color: #da7c0c;
+  border-right-color: #da7c0c;
+  border-bottom-color: #da7c0c;
+  border-left-color: #da7c0c;
+  border-top-width: 1px;
+  border-right-width: 1px;
+  border-bottom-width: 1px;
+  border-left-width: 1px;
+  border-top-style: solid;
+  border-right-style: solid;
+  border-bottom-style: solid;
+  border-left-style: solid;
+  background-image: none;
+  background-attachment: scroll;
+  background-repeat: repeat;
+  background-position-x: 0%;
+  background-position-y: 0%;
+  background-size: auto;
+  background-origin: padding-box;
+  background-clip: padding-box;
+  background-color: #d6552e;
+  box-shadow: inset 0 0 5px #ffffff;
+}
+
+#ccc:hover {
+  background: #d6a05e;
+}
+
+#ccc0 {
+  font-family: 'Exo 2', sans-serif;
+  width: 86px;
+  text-align: center;
+  line-height: 100%;
+  padding-top: 0.5em;
+  padding-right: 2em;
+  padding-bottom: 0.55em;
+  padding-left: 2em;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  text-decoration: none;
+  margin-top: 0px;
+  margin-right: 2px;
+  margin-bottom: 0px;
+  margin-left: 2px;
+  vertical-align: text-bottom;
+  display: inline-block;
+  cursor: pointer;
+  outline-width: medium;
+  outline-color: invert;
+  font-size-adjust: none;
+  font-stretch: normal;
+  border-radius: 0.5em;
+  text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
+  color: #fefee9;
+  border-top-color: #da7c0c;
+  border-right-color: #da7c0c;
+  border-bottom-color: #da7c0c;
+  border-left-color: #da7c0c;
+  border-top-width: 1px;
+  border-right-width: 1px;
+  border-bottom-width: 1px;
+  border-left-width: 1px;
+  border-top-style: solid;
+  border-right-style: solid;
+  border-bottom-style: solid;
+  border-left-style: solid;
+  background-image: none;
+  background-attachment: scroll;
+  background-repeat: repeat;
+  background-position-x: 0%;
+  background-position-y: 0%;
+  background-size: auto;
+  background-origin: padding-box;
+  background-clip: padding-box;
+  background-color: #d6552e;
+  box-shadow: inset 0 0 5px #ffffff;
+}
+
+#ccc0:hover {
+  background: #d6a05e;
+}

@@ -22,28 +22,28 @@ def dictfetchall(cursor):
     desc = cursor.description
     return [dict(itertools.izip([col[0] for col in desc], row))
                                  for row in cursor.fetchall()]
-class SqlInjectionKnowledge(webapp2.RequestHandler):
-    def get(self):
+class SqlInjection2Check(webapp2.RequestHandler):
+    def post(self):
+        name = self.request.get("result")
+        if name == "tiffany fletcher":
+            succeed = "$(\"<p style=\'color:red\'>Congratulations!!!</p>\").appendTo('#lessonContent')" 
+            self.response.write(succeed)
+        else:
+            self.error(400);
 
-        template_values = {
-                'islesson': False,
-        }
-        template = JINJA_ENVIRONMENT.get_template('sql_injection_knowledge.html')
-        self.response.write(template.render(template_values))
-
-class SqlInjection1(webapp2.RequestHandler):
+class SqlInjection2(webapp2.RequestHandler):
     def get(self):
         db = MySQLdb.connect(host='104.197.210.151', port=3306, user='root', passwd='Hv3F4qSX', db='sqlinjection')
         cursor = db.cursor()
         print os.path.dirname(__file__)
-        for line in open(os.path.dirname(__file__)+'/sql/sql_injection_1.sql'):
+        for line in open(os.path.dirname(__file__)+'/sql/sql_injection_2.sql'):
             try:
                 cursor.execute(line)
                 db.commit()
             except:
                 db.rollback()
         #query.replace('%20',' ')
-        sql = 'select * from products'
+        sql = 'select * from reviews'
             
         try:
             cursor.execute(sql)
@@ -55,14 +55,17 @@ class SqlInjection1(webapp2.RequestHandler):
         cursor.close()
         db.close()
 
+        for review in data:
+            if review["is_anonymous"] == 1:
+                review["name"]="anonymous"
         template_values = {
                 'islesson': True,
                 'content':'You want to get a sony camera at a very low price, say, 0.01 dollar.',
                 'hint':'Try SQL injection',
-                'solution':'\';update products set price = 0.01 where product_name like \'%sony%\';#',
-                'result':data
+                'solution':'\'; select name as review_title, name, content, is_anonymous from reviews; #',
+                'reviews':data
         }
-        template = JINJA_ENVIRONMENT.get_template('sql_injection_1.html')
+        template = JINJA_ENVIRONMENT.get_template('sql_injection_2.html')
         self.response.write(template.render(template_values))
 
     def post(self):
@@ -74,23 +77,27 @@ class SqlInjection1(webapp2.RequestHandler):
         cursor.execute(querynew[0])
         db.commit()
         data = dictfetchall(cursor)
+
+        for review in data:
+            if review["is_anonymous"] == 1:
+                review["name"]="anonymous"
+                
         if querynew[1]!="":
             print querynew[1]
             cursor.execute(querynew[1])
             db.commit()
-        query = "select price from products where product_name like '%sony%'"
-        cursor.execute(query)
-        sonyprice = dictfetchall(cursor)
-        if sonyprice[0]['price'] == 0.01:
-            succeed = "$(\"<p style=\'color:red\'>Congratulations!!!</p>\").appendTo('#lessonContent')" 
-            #succeed = "$(\'#myModal\').on(\'shown.bs.modal\',function(){$(\'#myInput\').focus()})"
-        else:
-            succeed = ""
+            data = dictfetchall(cursor)
+        print data
+        for review in data:
+            if review["is_anonymous"] == 1:
+                review["name"]="anonymous"
+        success = ""
         datas = {
                 'data': data,
-                'succeed': succeed
+                'succeed': success
                 }
         jsonstring = json.dumps(datas)
         self.response.write(jsonstring)
+
         cursor.close()
         db.close()

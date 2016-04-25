@@ -1,0 +1,34 @@
+{% extends "frame.html" %}
+{% block content %}
+{% autoescape true %}
+<h1>Insecure Communication</h1>
+
+<h2>Introduction</h2>
+
+<p>Applications frequently fail to encrypt network traffic when it is necessary to protect sensitive communications. Encryption (usually SSL) must be used for all authenticated connections, especially Internet-accessible web pages, but backend connections as well. Otherwise, the application will expose an authentication or session token. In addition, encryption should be used whenever sensitive data, such as credit card or health information is transmitted. Applications that fall back or can be forced out of an encrypting mode can be abused by attackers.</p>
+
+<h2>Protection</h2>
+
+<p>The most important protection is to use SSL on any authenticated connection or whenever sensitive data is being transmitted. There are a number of details involved with configuring SSL for web applications properly, so understanding and analyzing your environment is important. For example, IE 7.0 provides a green bar for high trust SSL certificates, but this is not a suitable control to prove safe use of cryptography alone.</p>
+
+<ul>
+	<li>Use SSL for all connections that are authenticated or transmitting sensitive or value data, such as credentials, credit card details, health and other private information</li>
+	<li>Ensure that communications between infrastructure elements, such as between web servers and database systems, are appropriately protected via the use of transport layer security or protocol level encryption for credentials and intrinsic value data</li>
+	<li>Under PCI Data Security Standard requirement 4, you must protect cardholder data in transit. PCI DSS compliance is mandatory by 2008 for merchants and anyone else dealing with credit cards. In general, client, partner, staff and administrative online access to systems must be encrypted using SSL or similar. For more information, please see the PCI DSS Guidelines and implement controls as necessary</li>
+</ul>
+
+
+<h2>Outer Links</h2>
+
+<ul>
+	<li><a href="https://www.owasp.org/index.php/Guide_to_Cryptography">Guide to Cryptography</a></li>
+</ul>
+
+
+<p>OWASP Development Guide</p>
+
+<ul>
+	<li></li>
+</ul>
+{% endautoescape %}
+{% endblock %}

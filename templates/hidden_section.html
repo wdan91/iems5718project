@@ -1,0 +1,92 @@
+{% autoescape true %}
+
+        <title>Hidden Section</title>
+        <script type = "text/javascript" src = "http://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>	
+        <!-- include jquery and your js -->
+        <script src="/js/hidden_section.js"></script>
+        <script src="/js/jquery.js" type="text/javascript"></script>
+        <link href="/css/hidden_section.css" rel="stylesheet" type="text/css"  >
+
+
+
+<!-- HTML fragment correpsonding to the lesson content -->
+{% if finished %}
+	<div style="color:red;"> <br>&nbsp;&nbsp;Congratulations!!! </div>
+{% endif %}
+	<div id="lessonContent">
+			{% if not finished %}
+				<br><br>
+			{% endif %}	
+			<br>		
+		    * Your victim is a system that takes an activation key to allow you to use it.<br>
+		    * Take some time to see the HTML source in order to find some hidden section.<br>
+		    * If you do not how to see the source code, just press "F12".<br>
+	</div>
+	<div id="message" class="info"></div>
+
+	<div id="lessonContent">
+	    <br>
+	    <h1>Welcome to Login Page:</h1>
+	    <br>&nbsp;&nbsp;
+	    <br>&nbsp;&nbsp;
+	    <br><br><br>
+	    <div id="loginsection" align="center">
+		    	<table align="center" cellspacing="0" width="wrap_content"  cellpadding="5">
+					<tbody>
+						<tr>
+							<td align="left">&nbsp;Username:</td>
+							<td align="left"><input onclick="this.select()" style="text-align: right;" onkeyup="" id="username" type="TEXT" value="" /></td>
+						</tr>
+						<tr>
+							<td align="left">&nbsp;Password:</td>
+							<td align="left"><input onclick="this.select()" style="text-align: right;" onkeyup="" id="password" type="password" value="" /></td>
+						</tr>
+					</tbody>
+				</table>
+				<br>
+				<table>
+					<td>
+						<input id='LOGIN' value='LOGIN' type='BUTTON' onclick="submit();">
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					</td>
+					<td><input id='CLEAR' value='CLEAR' type='BUTTON' onclick="clearit();"></td>
+				</table>
+	    </div>
+	    <div id="hiddensection" hidden>
+	    	Here is the admin username: admin
+	    	<br>
+	    	Here is the admin password: keyofgod
+		<div id='MessageDiv' name='MessageDiv'></div>
+	</div>
+
+	<div id="glassDiv">
+	  You log in successfully!
+	  <br>
+	  <br>
+	  <div style="text-align:right;">
+		<div id="okdiv">
+			<form accept-charset='UNKNOWN' method='POST' action='/hidden_section'>
+				<input type="submit" id="ccc" value="OK" onclick='$("#glassDiv").css("display", "none");'>
+			</form>
+		</div>
+	  </div>
+	</div>
+
+	<div id="glassDiv0">
+	  !Please enter valid value(s)!
+	  <br>
+	  <br>
+	  <div style="text-align:right;">
+		<div id="okdiv">
+		  <input type="button" id="ccc0" value="OK" onclick='$("#glassDiv0").css("display", "none");'>
+		</div>
+	  </div>
+	</div>
+
+{% endautoescape %}
+
+
+<!-- 
+Hint: Sometimes a system admin will set his or her userid as admin for convenience.
+As the very first lesson, you just need to find the user name and password in a hidden section, can you find it?
+-->

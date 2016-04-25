@@ -1,0 +1,80 @@
+{% extends "frame.html" %}
+{% block content %}
+{% autoescape true %}
+
+<h1>SQL Injection</h1>
+
+<h2>Introduction</h2>
+
+<p>SQL injection is a code injection technique, used to attack data-driven applications, in which malicious SQL statements are inserted into an entry field for execution (e.g. to dump the database contents to the attacker).</p>
+
+<p>SQL injection must exploit a security vulnerability in an application's software, for example, when user input is either incorrectly filtered for string literal escape characters embedded in SQL statements or user input is not strongly typed and unexpectedly executed.</p>
+
+<p>SQL injection is mostly known as an attack vector for websites but can be used to attack any type of SQL database.</p>
+
+<h2>Basic Techniques</h2>
+
+<h3>SQL Injection Based on 1=1 is Always True</h3>
+
+<p>The original purpose of the code was to create an SQL statement to select a user with a given user id which you do not have.</p>
+
+<p>If there is nothing to prevent a user from sql injection, the user can enter some "smart" input like this:</p>
+
+<p><code>105 or 1=1</code></p>
+
+<p>Server Result:</p>
+
+<pre><code>SELECT * FROM Users WHERE UserId = 105 or 1=1
+</code></pre>
+
+<p>The SQL above is valid. It will return all rows from the table Users, since <strong> WHERE 1=1 </strong> is always true.</p>
+
+<h3>SQL Injection Based on ""="" is Always True</h3>
+
+<p>This is a common log in page:</p>
+
+<p>Server Code:</p>
+
+<pre><code>uName = getRequestString("UserName");
+uPass = getRequestString("UserPass");
+
+sql = "SELECT * FROM Users WHERE Name ='" + uName + "' AND Pass ='" + uPass + "'"
+</code></pre>
+
+<p>A hacker might get access to user names and passwords in a database by simply inserting " or ""=" into the user name or password text box.</p>
+
+<p>The code at the server will create a valid SQL statement like this:</p>
+
+<pre><code>SELECT * FROM Users WHERE Name ="" or ""="" AND Pass ="" or ""=""
+</code></pre>
+
+<p>The result SQL is valid. It will return all rows from the table Users, since <strong>WHERE ""="" </strong> is always true.</p>
+
+<h3>SQL Injection Based on Batched SQL Statements</h3>
+
+<p>Most databases support batched SQL statement, separated by semicolon. If users input illegal parameters, the code at the server would create a valid SQL statement like this:</p>
+
+<pre><code>SELECT * FROM Users WHERE UserId = 105; DROP TABLE Suppliers
+</code></pre>
+
+<p>Then all data of suppliers will be deleted.</p>
+
+<h2>SQL Injection Prevention</h2>
+
+<p>Web developers should use parametrized queries, never build SQL code strings.
+	In python:</p>
+
+<pre><code>cursor.execute("INSERT INTO table VALUES (%s, %s, %s)", (var1, var2, var3))
+</code></pre>
+
+	<h2>Outer links</h2>
+
+	<ul>
+		<li><p><a href="https://en.wikipedia.org/wiki/SQL_injection">Wikipedia</a></p></li>
+		<li><p><a href="http://sqlzoo.net/hack/">Sqlzoo hack</a></p></li>
+	</ul>
+
+
+	<p>This is a website where you can exploit the SQL injection attack.</p>
+{% endautoescape %}
+{% endblock %}
